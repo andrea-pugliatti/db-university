@@ -13,14 +13,13 @@
 
 - id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
 - name                          VARCHAR(40) NOTNULL
-- (one to many) degree_id       BIGINT FOREIGN_KEY
 
 ## degrees
 
 - id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
 - name                          VARCHAR(40) NOTNULL
 - id_code                       CHAR(4) NOTNULL
-- (one to many) course_id       BIGINT FOREIGN_KEY
+- (one to one) department_id    BIGINT FOREIGN_KEY
 
 ## courses
 
@@ -29,6 +28,7 @@
 - description                   TEXT NULL
 - id_code                       CHAR(10) NOTNULL
 - credits                       TINYINT NOTNULL
+- (one to one) degree_id        BIGINT FOREIGN_KEY
 - (one to many) exam_session_id BIGINT FOREIGN_KEY
 
 ## teachers
@@ -38,11 +38,7 @@
 - address                       VARCHAR(40) NOTNULL
 - phone                         CHAR(10) NOTNULL
 - rank                          VARCHAR(25) NOTNULL
-
-## pivot: course_teacher
-
 - course_id                     BIGINT FOREIGN_KEY
-- teacher_id                    BIGINT FOREIGN_KEY
 
 ## exam_sessions
 
