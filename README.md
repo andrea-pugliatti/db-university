@@ -3,7 +3,7 @@
 Modellizzare la struttura di un database per memorizzare tutti i dati riguardanti una università:
 
 - sono presenti diversi Dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegneria ecc.);
-- ogni Dipartimento offre più Corsi di Laurea (es.: Civiltà e Letterature Classiche, Informatica, Ingegneria Elettronica ecc..)
+- ogni Dipartimento offre più Corsi di Laurea (es.: Civiltà e Letterature Classiche, Informatica, Ingegneria Elettronica ecc..);
 - ogni Corso di Laurea prevede diversi Corsi (es.: Letteratura Latina, Sistemi Operativi 1, Analisi Matematica 2 ecc.);
 - ogni Corso può essere tenuto da diversi Insegnanti;
 - ogni Corso prevede più appelli d'Esame;
