@@ -11,62 +11,65 @@
 
 ## departments
 
-- id 
-- name 
-- (one to many) degree_id
+- id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
+- name                          VARCHAR(40) NOTNULL
+- (one to many) degree_id       BIGINT FOREIGN_KEY
 
 ## degrees
 
-- id 
-- name 
-- (one to many) course_id
+- id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
+- name                          VARCHAR(40) NOTNULL
+- id_code                       CHAR(4) NOTNULL
+- (one to many) course_id       BIGINT FOREIGN_KEY
 
 ## courses
 
-- id 
-- name
-- credits
-- (many to many) teachers_id
-- (one to many) exam_session_id
+- id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
+- name                          VARCHAR(40) NOTNULL
+- description                   TEXT NULL
+- id_code                       CHAR(10) NOTNULL
+- credits                       TINYINT NOTNULL
+- (many to many) teachers_id    BIGINT FOREIGN_KEY
+- (one to many) exam_session_id BIGINT FOREIGN_KEY
 
 ## teachers
 
-- id 
-- name
-- address
-- phone
-- rank
-- (many to many) course_id
+- id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
+- name                          VARCHAR(30) NOTNULL
+- address                       VARCHAR(40) NOTNULL
+- phone                         CHAR(10) NOTNULL
+- rank                          VARCHAR(25) NOTNULL
+- (many to many) course_id      BIGINT FOREIGN_KEY
 
 ## pivot: course_teacher
 
-- id
-- course_id
-- teacher_id
+- id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
+- course_id                     BIGINT FOREIGN_KEY
+- teacher_id                    BIGINT FOREIGN_KEY
 
 ## exam_sessions
 
-- id 
-- course_id
-- (one to many) student_id
-- date
-- location
+- id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
+- course_id                     BIGINT FOREIGN_KEY
+- (one to many) student_id      BIGINT FOREIGN_KEY
+- date                          DATETIME NOTNULL
+- location                      VARCHAR(5) NOTNULL
 
 ## students
 
-- id
-- registration_number
-- name
-- address
-- phone
-- registration_date
-- degree_id
-- (one to many) course_id
-- (many to many) exam_sessions
+- id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
+- registration_number           CHAR(8) NOTNULL
+- name                          VARCHAR(30) NOTNULL
+- address                       VARCHAR(40) NOTNULL
+- phone                         VARCHAR(10) NOTNULL
+- registration_date             DATE NOTNULL
+- degree_id                     BIGINT FOREIGN_KEY
+- (one to many) course_id       BIGINT FOREIGN_KEY
+- (many to many) exam_session_id BIGINT FOREIGN_KEY
 
 ## pivot: exam_session_student
 
-- id
-- student_id
-- exam_session_id
-- vote
+- id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
+- student_id                    BIGINT FOREIGN_KEY
+- exam_session_id               BIGINT FOREIGN_KEY
+- vote                          CHAR(2) NOTNULL
