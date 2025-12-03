@@ -29,7 +29,6 @@
 - description                   TEXT NULL
 - id_code                       CHAR(10) NOTNULL
 - credits                       TINYINT NOTNULL
-- (many to many) teachers_id    BIGINT FOREIGN_KEY
 - (one to many) exam_session_id BIGINT FOREIGN_KEY
 
 ## teachers
@@ -39,11 +38,9 @@
 - address                       VARCHAR(40) NOTNULL
 - phone                         CHAR(10) NOTNULL
 - rank                          VARCHAR(25) NOTNULL
-- (many to many) course_id      BIGINT FOREIGN_KEY
 
 ## pivot: course_teacher
 
-- id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
 - course_id                     BIGINT FOREIGN_KEY
 - teacher_id                    BIGINT FOREIGN_KEY
 
@@ -51,7 +48,6 @@
 
 - id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
 - course_id                     BIGINT FOREIGN_KEY
-- (one to many) student_id      BIGINT FOREIGN_KEY
 - date                          DATETIME NOTNULL
 - location                      VARCHAR(5) NOTNULL
 
@@ -65,11 +61,9 @@
 - registration_date             DATE NOTNULL
 - degree_id                     BIGINT FOREIGN_KEY
 - (one to many) course_id       BIGINT FOREIGN_KEY
-- (many to many) exam_session_id BIGINT FOREIGN_KEY
 
 ## pivot: exam_session_student
 
-- id                            PRIMARY_KEY BIGINT AUTO_INCREMENT
 - student_id                    BIGINT FOREIGN_KEY
 - exam_session_id               BIGINT FOREIGN_KEY
 - vote                          CHAR(2) NOTNULL
