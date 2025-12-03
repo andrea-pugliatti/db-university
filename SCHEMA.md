@@ -60,7 +60,6 @@
 - phone                         VARCHAR(10) NOTNULL
 - registration_date             DATE NOTNULL
 - degree_id                     BIGINT FOREIGN_KEY
-- (one to many) course_id       BIGINT FOREIGN_KEY
 
 ## pivot: exam_session_student
 
